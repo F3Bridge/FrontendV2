@@ -1,31 +1,26 @@
-import { CoinbaseWallet } from "@web3-react/coinbase-wallet";
-import {
-  useWeb3React,
-  Web3ReactHooks,
-  Web3ReactProvider,
-} from "@web3-react/core";
-import { MetaMask } from "@web3-react/metamask";
-import { Network } from "@web3-react/network";
+import { Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
 import type { Connector } from "@web3-react/types";
-import { WalletConnect } from "@web3-react/walletconnect";
 import { ReactNode } from "react";
+
 import {
   coinbaseWallet,
   hooks as coinbaseWalletHooks,
 } from "../connectors/coinbaseWallet";
+
 import { hooks as metaMaskHooks, metaMask } from "../connectors/metaMask";
+
 import {
   hooks as walletConnectHooks,
   walletConnect,
 } from "../connectors/walletConnect";
 
-const connectors: [
-  MetaMask | WalletConnect | CoinbaseWallet | Network,
-  Web3ReactHooks
-][] = [
+import { hooks as web3AuthHooks, web3Auth } from "../connectors/web3auth";
+
+const connectors: [Connector, Web3ReactHooks][] = [
   [metaMask, metaMaskHooks],
   [walletConnect, walletConnectHooks],
   [coinbaseWallet, coinbaseWalletHooks],
+  [web3Auth, web3AuthHooks],
 ];
 
 export default function Web3Provider({ children }: { children?: ReactNode }) {
