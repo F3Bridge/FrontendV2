@@ -1,7 +1,6 @@
 import { metaMask } from "../connectors/metaMask";
 import { walletConnect } from "../connectors/walletConnect";
 import { coinbaseWallet } from "../connectors/coinbaseWallet";
-import { web3Auth } from "../connectors/web3auth";
 import { XIcon } from "@heroicons/react/solid";
 
 export function ConnectionModal({ onClose }: { onClose: () => void }) {
@@ -45,7 +44,7 @@ export function ConnectionModal({ onClose }: { onClose: () => void }) {
           </button>
           <button
             className="p-4 bg-gray-100 rounded"
-            onClick={withClose(() => web3Auth.activate())}
+            onClick={withClose(() => {})}
           >
             Web3Auth
           </button>
