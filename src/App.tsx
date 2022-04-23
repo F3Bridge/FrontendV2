@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { FriendsPage } from "./pages/FriendsPage";
 import Navbar from './components/Navbar'
+import { CommunitiesPage } from './pages/CommunitiesPage'
 
 const App = () => {
   const [web3Provider, setWeb3Provider] = useState();
@@ -28,7 +29,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/FriendsPage" element={<FriendsPage />} />
-	  {/*<Route path="/communities" element={<Communities />} />*/}
+	  <Route path="/CommunitiesPage" element={<CommunitiesPage />} />
     </Routes>
 	</>
 
