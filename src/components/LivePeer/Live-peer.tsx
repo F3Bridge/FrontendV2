@@ -57,7 +57,7 @@ const LivePeer = () => {
 
   return (
     <div>
-      <input type="file" onChange={() => mintNft()} />
+      <button onClick={() => mintNft()}>Upload Video</button>
     </div>
   );
 };
