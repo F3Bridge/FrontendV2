@@ -6,7 +6,9 @@ import { Connector } from "@web3-react/types";
 import { WalletConnect } from "@web3-react/walletconnect";
 import { Link } from "react-router-dom";
 
+import { metaMask } from "../connectors/metaMask";
 import { walletConnect } from "../connectors/walletConnect";
+import { coinbaseWallet } from "../connectors/coinbaseWallet";
 
 function getName(connector: Connector) {
   if (connector instanceof MetaMask) return "MetaMask";
@@ -21,8 +23,14 @@ export function HomePage() {
       tHiS iS HomE pAgE{" "}
       <Link to="/friends">(Click here to go to friendSsS page)</Link>
       <div>Connector is: {getName(connector)}</div>
+      <div onClick={() => metaMask.activate()}>
+        activate the mighty Metamask
+      </div>
       <div onClick={() => walletConnect.activate()}>
         activate the mighty WAAAAALEEEEEET CONNEEEEEEEEEECT
+      </div>
+      <div onClick={() => coinbaseWallet.activate()}>
+        activate the mighty Coinbase
       </div>
     </div>
   );
