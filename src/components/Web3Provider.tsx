@@ -1,11 +1,14 @@
 import { Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
 import type { Connector } from "@web3-react/types";
 import { ReactNode } from "react";
+
 import {
   coinbaseWallet,
   hooks as coinbaseWalletHooks,
 } from "../connectors/coinbaseWallet";
+
 import { hooks as metaMaskHooks, metaMask } from "../connectors/metaMask";
+
 import {
   hooks as walletConnectHooks,
   walletConnect,
