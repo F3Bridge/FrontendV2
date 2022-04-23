@@ -1,0 +1,62 @@
+diff --git a/node_modules/@web3auth/ui/dist/ui.esm.js b/node_modules/@web3auth/ui/dist/ui.esm.js
+index 0574676..5731505 100644
+--- a/node_modules/@web3auth/ui/dist/ui.esm.js
++++ b/node_modules/@web3auth/ui/dist/ui.esm.js
+@@ -7,7 +7,7 @@ import { render } from 'react-dom';
+ import cloneDeep from 'lodash.clonedeep';
+ import deepmerge from 'lodash.merge';
+ import { createContext, useEffect, memo, useState, useMemo, useContext, useCallback } from 'react';
+-import bowser, { PLATFORMS_MAP, OS_MAP } from 'bowser';
++import Bowser from 'bowser';
+ import QRCode from 'react-qr-code';
+ import classNames from 'classnames';
+ 
+@@ -288,7 +288,7 @@ function formatMobileRegistryEntry(entry, walletConnectUri, os) {
+     logo: entry.logo || "",
+     universalLink,
+     deepLink,
+-    href: os === OS_MAP.iOS ? formatIOSMobile({
++    href: os === Bowser.OS_MAP.iOS ? formatIOSMobile({
+       uri: walletConnectUri,
+       universalLink,
+       deepLink
+@@ -308,14 +308,14 @@ function WalletConnect(props) {
+   } = props;
+   const [links, setLinks] = useState([]);
+   const deviceDetails = useMemo(() => {
+-    const browser = bowser.getParser(window.navigator.userAgent);
++    const browser = Bowser.getParser(window.navigator.userAgent);
+     return {
+       platform: browser.getPlatformType(),
+       os: browser.getOSName()
+     };
+   }, [window.navigator.userAgent]);
+   useEffect(() => {
+-    if (deviceDetails.platform === PLATFORMS_MAP.mobile) {
++    if (deviceDetails.platform === Bowser.PLATFORMS_MAP.mobile) {
+       const mobileLinks = formatMobileRegistry(wcAdapters, walletConnectUri, deviceDetails.os, deviceDetails.platform);
+       setLinks(mobileLinks);
+     }
+@@ -324,11 +324,11 @@ function WalletConnect(props) {
+   return jsx("div", {
+     className: "w3ajs-wallet-connect w3a-wallet-connect",
+     children: jsxs("div", {
+-      className: "w3ajs-wallet-connect__container w3a-wallet-connect__container".concat(deviceDetails.os === OS_MAP.Android ? " w3a-wallet-connect__container--android" : ""),
++      className: "w3ajs-wallet-connect__container w3a-wallet-connect__container".concat(deviceDetails.os === Bowser.OS_MAP.Android ? " w3a-wallet-connect__container--android" : ""),
+       children: [jsx("div", {
+         className: "w3a-wallet-connect__logo",
+         children: walletConnectIcon
+-      }), deviceDetails.platform === PLATFORMS_MAP.desktop ? jsxs("div", {
++      }), deviceDetails.platform === Bowser.PLATFORMS_MAP.desktop ? jsxs("div", {
+         className: "w3a-wallet-connect__container-desktop",
+         children: [jsx("div", {
+           children: "Scan QR code with a WalletConnect-compatible wallet"
+@@ -342,7 +342,7 @@ function WalletConnect(props) {
+       }) : jsx("div", {
+         className: "w3a-wallet-connect__container-btn-group",
+         children: links.map(link => {
+-          return deviceDetails.os === OS_MAP.iOS ? jsx("div", {
++          return deviceDetails.os === Bowser.OS_MAP.iOS ? jsx("div", {
+             className: "w3a-wallet-connect__container-ios",
+             children: jsxs("a", {
+               href: link.href,
