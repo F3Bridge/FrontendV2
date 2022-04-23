@@ -62,8 +62,16 @@ export function DiscordPage() {
     })();
   }, [accessToken]);
 
+  if (!provider) {
+    return (
+      <div className="mt-4 bg-gray-200 rounded-xl">
+        You need to sign in with Ethereum first.
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen text-xl text-gray-600">
+    <div className="mt-4 bg-gray-200 rounded-xl">
       {!isActive ? (
         <div>
           <button onClick={() => setModalShown(true)}>Auth</button>

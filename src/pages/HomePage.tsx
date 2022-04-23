@@ -25,7 +25,6 @@ export function HomePage() {
         {isActive ? <>Connector is: {getName(connector)}</> : "Inactive"}
       </div>
       <button onClick={() => setModalShown(true)}>Connect!</button>
-      {modalShown && <ConnectionModal onClose={() => setModalShown(false)} />}
     </div>
   );
 }
