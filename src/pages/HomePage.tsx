@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { metaMask } from "../connectors/metaMask";
 import { walletConnect } from "../connectors/walletConnect";
 import { coinbaseWallet } from "../connectors/coinbaseWallet";
+import { web3Auth } from "../connectors/web3auth";
 
 function getName(connector: Connector) {
   if (connector instanceof MetaMask) return "MetaMask";
@@ -31,6 +32,9 @@ export function HomePage() {
       </div>
       <div onClick={() => coinbaseWallet.activate()}>
         activate the mighty Coinbase
+      </div>
+      <div onClick={() => web3Auth.activate()}>
+        activate the mighty Web3Auth
       </div>
     </div>
   );
