@@ -6,7 +6,7 @@ const navigation = [
 //  { name: 'Dashboard', href: '#', current: true },
   { name: 'Profile', href: '#', current: false },
   { name: 'Frens', href: '/FriendsPage', current: false },
-  { name: 'Communities', href: '#', current: false },
+  { name: 'Communities', href: '/CommunitiesPage', current: false },
 ]
 
 function classNames(...classes: string[]) {
