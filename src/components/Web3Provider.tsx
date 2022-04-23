@@ -1,5 +1,6 @@
 import { Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
 import type { Connector } from "@web3-react/types";
+import { providers, Signer } from "ethers";
 import { ReactNode } from "react";
 
 import {
@@ -14,13 +15,10 @@ import {
   walletConnect,
 } from "../connectors/walletConnect";
 
-import { hooks as web3AuthHooks, web3Auth } from "../connectors/web3auth";
-
 const connectors: [Connector, Web3ReactHooks][] = [
   [metaMask, metaMaskHooks],
   [walletConnect, walletConnectHooks],
   [coinbaseWallet, coinbaseWalletHooks],
-  [web3Auth, web3AuthHooks],
 ];
 
 export default function Web3Provider({ children }: { children?: ReactNode }) {
