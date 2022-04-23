@@ -6,13 +6,11 @@ import { WalletConnect } from "@web3-react/walletconnect";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ConnectionModal } from "../components/ConnectionModal";
-import { Web3Auth } from "../connectors/web3auth";
 
 function getName(connector: Connector) {
   if (connector instanceof MetaMask) return "MetaMask";
   if (connector instanceof WalletConnect) return "WalletConnect";
   if (connector instanceof CoinbaseWallet) return "Coinbase Wallet";
-  if (connector instanceof Web3Auth) return "Web3Auth";
   return "Unknown";
 }
 export function HomePage() {
