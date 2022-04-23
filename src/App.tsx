@@ -1,9 +1,10 @@
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { useEffect, useState } from "react";
 import { providers } from "ethers";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { FriendsPage } from "./pages/FriendsPage";
+import Navbar from './components/Navbar'
 
 const App = () => {
   const [web3Provider, setWeb3Provider] = useState();
@@ -22,10 +23,15 @@ const App = () => {
   }, []);
 
   return (
+	  <>
+	<Navbar />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/friends" element={<FriendsPage />} />
+      <Route path="/FriendsPage" element={<FriendsPage />} />
+	  {/*<Route path="/communities" element={<Communities />} />*/}
     </Routes>
+	</>
+
   );
 };
 

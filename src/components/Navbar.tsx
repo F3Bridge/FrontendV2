@@ -5,7 +5,7 @@ import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 const navigation = [
 //  { name: 'Dashboard', href: '#', current: true },
   { name: 'Profile', href: '#', current: false },
-  { name: 'Frens', href: '#', current: false },
+  { name: 'Frens', href: '/FriendsPage', current: false },
   { name: 'Communities', href: '#', current: false },
 ]
 
@@ -13,6 +13,9 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+<>
+xaxa
+</>
 export default function Example() {
   return (
     <Disclosure as="nav" className="bg-[#7EBDC3]">
