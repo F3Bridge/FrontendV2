@@ -10,13 +10,11 @@ import {
   hooks as walletConnectHooks,
   walletConnect,
 } from "../connectors/walletConnect";
-import { hooks as web3authHooks, web3auth } from "../connectors/web3auth";
 
 const connectors: [Connector, Web3ReactHooks][] = [
   [metaMask, metaMaskHooks],
   [walletConnect, walletConnectHooks],
   [coinbaseWallet, coinbaseWalletHooks],
-  [web3auth, web3authHooks],
 ];
 
 export default function Web3Provider({ children }: { children?: ReactNode }) {
