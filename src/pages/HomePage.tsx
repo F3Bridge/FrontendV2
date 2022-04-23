@@ -6,7 +6,8 @@ import { WalletConnect } from "@web3-react/walletconnect";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ConnectionModal } from "../components/ConnectionModal";
-import Navbar from "../components/Navbar";
+import LivePeer from "../components/LivePeer/Live-peer";
+// import { Web3Auth } from "../connectors/web3auth";
 
 function getName(connector: Connector) {
   if (connector instanceof MetaMask) return "MetaMask";
@@ -15,7 +16,7 @@ function getName(connector: Connector) {
   return "Unknown";
 }
 export function HomePage() {
-  const { connector, isActive } = useWeb3React();
+  const { connector, isActive, provider } = useWeb3React();
   const [modalShown, setModalShown] = useState(false);
   return (
     <div className="min-h-screen text-xl text-pink-700 bg-yellow-300">
