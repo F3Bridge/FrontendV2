@@ -42,6 +42,12 @@ export function ConnectionModal({ onClose }: { onClose: () => void }) {
           >
             Coinbase Wallet
           </button>
+          <button
+            className="p-4 bg-gray-100 rounded"
+            onClick={withClose(() => {})}
+          >
+            Web3Auth
+          </button>
         </div>
       </div>
     </div>

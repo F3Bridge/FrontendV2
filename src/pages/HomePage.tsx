@@ -6,6 +6,7 @@ import { WalletConnect } from "@web3-react/walletconnect";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ConnectionModal } from "../components/ConnectionModal";
+import Navbar from "../components/Navbar";
 
 function getName(connector: Connector) {
   if (connector instanceof MetaMask) return "MetaMask";
@@ -18,7 +19,6 @@ export function HomePage() {
   const [modalShown, setModalShown] = useState(false);
   return (
     <div className="min-h-screen text-xl text-pink-700 bg-yellow-300">
-      tHiS iS HomE pAgE{" "}
       <Link to="/friends">(Click here to go to friendSsS page)</Link>
       <div>
         {isActive ? <>Connector is: {getName(connector)}</> : "Inactive"}
