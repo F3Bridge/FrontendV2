@@ -141,37 +141,37 @@ export function IntroCont() {
         </p>
       </div>
 
-      <div className="flex text-white text-2xl justify-center mt-12 shadow-2xl"></div>
-
-      <div className="flex items-center bg-black justify-center w-screen ">
-        <div className="relative group w-full lg:mt-96">
-          <div className="animate-tilt  transition group-hover:duration-200 duration-500 group-hover:opacity-100 opacity-75 absolute rounded-lg -inset-0.5 bg-gradient-to-r from-green-400/80 via-violet-400/20 to-blue-500 filter blur"></div>
-          <button className="relative w-screen py-4 leading-none bg-black divide-x divide-gray-600 rounded-lg px-7">
-            <span className="pr-6  text-gray-100 text-xl font-extrabold">
-              Enter App
-            </span>
-          </button>
+      <div className="flex w-full justify-center">
+        <div className="flex items-center bg-black justify-center w-[200px] m-30 ">
+          <div className="relative group w-full lg:mt-40">
+            <div className="animate-tilt  transition group-hover:duration-200 duration-500 group-hover:opacity-100 opacity-75 absolute rounded-lg -inset-0.5 bg-gradient-to-r from-green-400/80 via-violet-400/20 to-blue-500 filter blur"></div>
+            <button className="relative w-[200px] py-4 leading-none bg-black divide-x divide-gray-600 rounded-lg px-7">
+              <span className="text-gray-100 text-xl font-extrabold">
+                Enter App
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 
-      <div className="flex lg:space-x-80 absolute bottom-0 flex-row space-x-10 justify-center">
+      <div className="flex m-10 lg:space-x-80 absolute bottom-0 flex-row space-x-10 justify-center">
         <img
           src="https://icodrops.com/wp-content/uploads/2022/02/LensProtocol_logo-1.jpeg"
-          width="200"
-          height="200"
+          width="150"
+          height="150"
         />
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Ipfs-logo-1024-ice-text.png/768px-Ipfs-logo-1024-ice-text.png"
-          width="200"
-          height="200"
+          width="150"
+          height="150"
         />
         <img
           src="https://cryptologos.cc/logos/polygon-matic-logo.png"
-          width="200"
+          width="150"
         />
         <img
           src="https://seeklogo.com/images/W/walletconnect-logo-EE83B50C97-seeklogo.com.png"
-          width="200"
+          width="150"
         />
       </div>
     </HomeSectionContainer>
