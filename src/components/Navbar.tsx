@@ -56,6 +56,16 @@ export function Navbar() {
                     NFT Video
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/discord"
+                    className={({ isActive }) =>
+                      isActive ? "text-black" : "text-gray-400"
+                    }
+                  >
+                    Discord
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
