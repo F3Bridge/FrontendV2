@@ -107,7 +107,7 @@ function getName(connector: Connector) {
   if (connector instanceof CoinbaseWallet) return "Coinbase Wallet";
   return "Unknown";
 }
-export function IntroCont() {
+export function IntroCont({ setIsIntro }: { setIsIntro: any }) {
   const { connector, isActive, provider } = useWeb3React();
   const [modalShown, setModalShown] = useState(false);
   return (
@@ -145,7 +145,10 @@ export function IntroCont() {
         <div className="flex items-center bg-black justify-center w-[200px] m-30 ">
           <div className="relative group w-full lg:mt-40">
             <div className="animate-tilt  transition group-hover:duration-200 duration-500 group-hover:opacity-100 opacity-75 absolute rounded-lg -inset-0.5 bg-gradient-to-r from-green-400/80 via-violet-400/20 to-blue-500 filter blur"></div>
-            <button className="relative w-[200px] py-4 leading-none bg-black divide-x divide-gray-600 rounded-lg px-7">
+            <button
+              className="relative w-[200px] py-4 leading-none bg-black divide-x divide-gray-600 rounded-lg px-7"
+              onClick={() => setIsIntro(false)}
+            >
               <span className="text-gray-100 text-xl font-extrabold">
                 Enter App
               </span>

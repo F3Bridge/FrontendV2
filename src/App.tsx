@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { Navbar } from "./components/Navbar";
@@ -8,13 +9,14 @@ import { Profile } from "./pages/Profile";
 import { Streams } from "./pages/Streams";
 
 function App() {
-  const isIntro = true;
+  const [isIntro, setIsIntro] = useState(true);
+
   return (
     <>
       {isIntro ? (
         <>
           <Intro />
-          <IntroCont />
+          <IntroCont setIsIntro={setIsIntro} />
         </>
       ) : (
         <>
