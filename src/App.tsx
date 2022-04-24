@@ -1,26 +1,19 @@
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { useEffect, useState } from "react";
-import { providers } from "ethers";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HomePage } from "./pages/HomePage";
-import { FriendsPage } from "./pages/FriendsPage";
-import Navbar from './components/Navbar'
-import { CommunitiesPage } from './pages/CommunitiesPage'
-import { DiscordPage } from "./pages/DiscordPage";
+import { Route, Routes } from "react-router-dom";
 
-const App = () => {
+import { Navbar } from "./components/Navbar";
+import { Posts } from "./pages/Posts";
+import { Profile } from "./pages/Profile";
+
+function App() {
   return (
-	  <>
-	<Navbar />
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/FriendsPage" element={<FriendsPage />} />
-	    <Route path="/CommunitiesPage" element={<CommunitiesPage />} />
-      <Route path="/DiscordPage" element={<DiscordPage />} />
-    </Routes>
-	</>
-
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Posts />} />
+        <Route path="/profile/:address" element={<Profile />} />
+      </Routes>
+    </>
   );
-};
+}
 
 export default App;

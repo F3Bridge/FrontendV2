@@ -1,6 +1,5 @@
 import { Web3ReactHooks, Web3ReactProvider } from "@web3-react/core";
-import type { Connector } from "@web3-react/types";
-import { providers, Signer } from "ethers";
+import { Connector } from "@web3-react/types";
 import { ReactNode } from "react";
 
 import {

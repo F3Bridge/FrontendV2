@@ -4,18 +4,8 @@ import nodePolyfills from "rollup-plugin-polyfill-node";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  server: {
-    proxy: {
-      // string shorthand
-      "/api": "http://localhost:8080",
-    },
-  },
   plugins: [
-    react({
-      babel: {
-        plugins: ["babel-plugin-macros", "babel-plugin-styled-components"],
-      },
-    }),
+    react(),
     nodePolyfills({
       include: [
         "*.js",
