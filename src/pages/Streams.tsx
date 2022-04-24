@@ -45,8 +45,8 @@ export function Streams() {
       });
       console.log("Deleting your stream...");
 
-      await deleteFlowOperation.exec(signer);
-
+      const transaction = await deleteFlowOperation.exec(signer);
+      await transaction.wait();
       console.log(
         `Congrats - you've just deleted your money stream!
            Super Token: DAIxF
@@ -56,6 +56,7 @@ export function Streams() {
       );
     } catch (error) {
       console.error(error);
+      throw error;
     }
   }
 
