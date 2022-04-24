@@ -22,7 +22,7 @@ export function Navbar() {
         <div className="max-w-4xl m-auto p-4 flex justify-between items-center">
           <div className="flex flex-row items-center space-x-12">
             <div>
-              <h1 className="text-xl text-bold">Superlens</h1>
+              <h1 className="text-xl text-bold">F3Bridge</h1>
             </div>
             <div>
               <ul className="flex flex-row space-x-8">
