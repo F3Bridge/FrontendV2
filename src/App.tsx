@@ -10,6 +10,7 @@ import { Streams } from "./pages/Streams";
 
 function App() {
   const [isIntro, setIsIntro] = useState(true);
+
   return (
     <>
       {isIntro ? (
