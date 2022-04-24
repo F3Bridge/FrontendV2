@@ -13,13 +13,7 @@ export function Streams() {
   const [superfluid, setSuperfluid] = useState<SuperfluidFramework | undefined>(
     undefined
   );
-  const [modalOpen, setModalOpen] = useState(false);
-  const [amount, setAmount] = useState("");
-  const [existingFlow, setExistingFlow] = useState<IWeb3FlowInfo | undefined>(
-    undefined
-  );
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const [address, setAddress] = useState("");
   const [streams, setStreams] = useState([]);
 
@@ -110,12 +104,8 @@ export function Streams() {
           superToken: daix.address,
           providerOrSigner: signer,
         });
-        if (Number(flow.flowRate) > 0) {
-          setExistingFlow(flow);
-        }
       } catch (e) {
         console.log(e);
-        setExistingFlow(undefined);
       }
     })();
   }, [superfluid]);
@@ -126,18 +116,16 @@ export function Streams() {
         <p>Loading...</p>
       </div>
     );
-  if (error)
-    return (
-      <div className="max-w-3xl m-auto my-4 px-4">
-        <pre>ERROR</pre>
-      </div>
-    );
 
   return (
     <div className="max-w-3xl m-auto my-4 px-4">
-      {streams.map((stream: any) => (
-        <Stream stream={stream} key={stream.id} stopStream={deleteFlow} />
-      ))}
+      {streams.length < 1 ? (
+        <div>You haven't created any streams. Go create one!</div>
+      ) : (
+        streams.map((stream: any) => (
+          <Stream stream={stream} key={stream.id} stopStream={deleteFlow} />
+        ))
+      )}
     </div>
   );
 }
