@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { Stream } from "../components/Stream";
 
 export function Streams() {
-  const { provider } = useWeb3React();
+  const { provider, isActive } = useWeb3React();
   const [superfluid, setSuperfluid] = useState<SuperfluidFramework | undefined>(
     undefined
   );
@@ -117,6 +117,14 @@ export function Streams() {
         <p>Loading...</p>
       </div>
     );
+
+  if (!isActive) {
+    return (
+      <div className="max-w-3xl m-auto my-4 px-4">
+        <p>Please sign in to view your streams.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-3xl m-auto my-4 px-4">
