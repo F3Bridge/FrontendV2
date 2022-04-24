@@ -41,7 +41,9 @@ export function ProfileSuperfluid({ address }: { address: string }) {
           superToken: daix.address,
           providerOrSigner: signer,
         });
-        setExistingFlow(flow);
+        if (Number(flow.flowRate) > 0) {
+          setExistingFlow(flow);
+        }
       } catch (e) {
         console.log(e);
         setExistingFlow(undefined);
@@ -51,7 +53,9 @@ export function ProfileSuperfluid({ address }: { address: string }) {
 
   if (!superfluid)
     return (
-      <div>Please sign in using Ethereum to open a stream for this profile</div>
+      <div>
+        Please sign in using Polygon Network to open a stream for this profile
+      </div>
     );
 
   const createFlow = async () => {
