@@ -120,24 +120,24 @@ export function IntroCont() {
           FAQ
         </p>
         <p className="flex pb-8 justify-center text-lg font-bold text-white/90">
-          Why not decentralize the registry?
+          What is F3Bridge?
         </p>
 
         <p className="flex pb-8 align-middle text-md font-medium text-white/90 ">
-          In theory, we could decentralize the Discord profile to Lens profile
-          mapping. For example by enabling users to publish the hash of their
-          Discord username into their Lens profile and then searching for
-          matching profiles on-chain. <br className="mt-2" />
-          However, it would be hard to independently verify the claim that they
-          indeed own that Discord profile, and are not impersonating another
-          user. <br className="mt-2" />
-          Therefore, we use a trusted registry that verifies Discord and web3
-          ownership at the same time. Transitioning from web2 to web3 inevitably
-          will require some centralized registries, but the good news is that
-          once you and your friends and communities are set up on Web3, you can
-          from then on fully determine what you publish, what you want to
-          consume and/or moderate, without any risks of being deplatformed or
-          monetized without your explicit permission.
+          F3Bridge is a decentralised application that acts both as a bridge and
+          social media app. First of all it allows web2 apps users to transition
+          smoothly to the web3 environment, and use their web2 data. Since the
+          content is completely decentralised in our app, there is almost* no
+          way of banning us from the posting any kind of content.{" "}
+          <br className="mt-2" />
+          Naturally, there are still some edge-cases when it would be better to
+          remove certain content. We can ban the given user or the content, in
+          the way of democratic/ DAO voting. user. <br className="mt-2" />
+          Since Web3 is heavily connected to the idea of barter and money, in
+          our app we also give the option to support our favourite creators by
+          creating money streams. Additionally, this solutions gives the
+          possibility to stop the money stream if the content creator is not
+          matching with the given supporter's preferences anymore.
         </p>
       </div>
 

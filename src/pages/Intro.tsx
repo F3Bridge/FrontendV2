@@ -114,13 +114,12 @@ export function Intro() {
       <LandingSectionContainer>
         <Logo>F3BRIDGE</Logo>
         <p className="flex pb-8 justify-center text-lg text-white/90">
-          F3Bridge is a tool to bridge your existing Web2 groups and friends
-          from Discord to the Web3 Lens Protocol.
+          F3Bridge is both a bridge to move your social media accounts from Web2
+          to Web3, and a social media platform at the same time.
         </p>
         <p className="flex justify-center text-lg text-white/80 mt-4">
-          A Discord bot allows you to connect to your Discord account, to
-          discover friends who already have a Web3 (Lens Protocol) social
-          profile.
+          Own your own data, and transfer smoothly to Web3 with F3Bridge Today!
+          :)
         </p>
         Web3
         <div className="flex w-full justify-center">
