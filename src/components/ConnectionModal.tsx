@@ -1,12 +1,19 @@
 import { metaMask } from "../connectors/metaMask";
 import { walletConnect } from "../connectors/walletConnect";
 import { coinbaseWallet } from "../connectors/coinbaseWallet";
+import { InitSwAuth } from "@skill-wallet/auth";
+import { useEffect } from "react";
 
 export function ConnectionModal({ onClose }: { onClose: () => void }) {
   const withClose = (action: () => void) => () => {
     action();
     onClose();
   };
+
+  useEffect(() => {
+    InitSwAuth();
+  }, []);
+
   return (
     <div
       className="h-full w-full top-0 left-0 absolute bg-[#000000a0] flex justify-center items-center text-black"
@@ -47,6 +54,12 @@ export function ConnectionModal({ onClose }: { onClose: () => void }) {
           >
             Web3Auth
           </button>
+          {/* @ts-ignore */}
+          <sw-auth
+            partner-key="d2af0de3d704460251bb855baa51f84280dbbc65"
+            use-dev="true"
+            use-button-options="true"
+          />
         </div>
       </div>
     </div>
