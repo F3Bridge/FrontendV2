@@ -6,7 +6,7 @@ import { timeAgo } from "../utils/timeAgo";
 const POSTS = gql`
   query Query {
     explorePublications(
-      request: { limit: 25, sortCriteria: LATEST, publicationTypes: [POST] }
+      request: { limit: 50, sortCriteria: LATEST, publicationTypes: [POST] }
     ) {
       items {
         ... on Post {
