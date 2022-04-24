@@ -13,9 +13,7 @@ export function ProfileSuperfluid({ address }: { address: string }) {
   );
   const [modalOpen, setModalOpen] = useState(false);
   const [amount, setAmount] = useState("");
-  const [existingFlow, setExistingFlow] = useState<IWeb3FlowInfo | undefined>(
-    undefined
-  );
+  const [existingFlow, setExistingFlow] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -42,11 +40,11 @@ export function ProfileSuperfluid({ address }: { address: string }) {
           providerOrSigner: signer,
         });
         if (Number(flow.flowRate) > 0) {
-          setExistingFlow(flow);
+          setExistingFlow(true);
         }
       } catch (e) {
         console.log(e);
-        setExistingFlow(undefined);
+        setExistingFlow(false);
       }
     })();
   }, [superfluid]);
@@ -59,6 +57,7 @@ export function ProfileSuperfluid({ address }: { address: string }) {
     );
 
   const createFlow = async () => {
+    setLoading(true);
     const daix = await superfluid.loadSuperToken("fDAIx");
     const signer = (provider as Web3Provider).getSigner(0);
     const createFlowOperation = superfluid.cfaV1.createFlow({
@@ -67,8 +66,15 @@ export function ProfileSuperfluid({ address }: { address: string }) {
       superToken: daix.address,
       flowRate: amount,
     });
-    const txnResponse = await createFlowOperation.exec(signer);
-    const txnReceipt = await txnResponse.wait();
+    try {
+      const txnResponse = await createFlowOperation.exec(signer);
+      const txnReceipt = await txnResponse.wait();
+      setLoading(false);
+      setModalOpen(false);
+      setExistingFlow(true);
+    } catch (e) {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,7 +89,7 @@ export function ProfileSuperfluid({ address }: { address: string }) {
       {modalOpen && (
         <div
           className="h-full w-full top-0 left-0 absolute bg-[#000000a0] flex justify-center items-center text-black"
-          onClick={() => setModalOpen(false)}
+          onClick={() => !loading && setModalOpen(false)}
         >
           <div
             className="p-4 bg-white w-96 min-h-80 rounded-xl"
@@ -91,28 +97,34 @@ export function ProfileSuperfluid({ address }: { address: string }) {
               e.stopPropagation();
             }}
           >
-            <div className="flex justify-between mb-4 align-center">
-              <div className="text-gray-400">Open a new stream</div>
-              <button onClick={() => setModalOpen(false)}>Close</button>
-            </div>
-            <div>
-              <input
-                className="block w-full py-2 px-4 rounded shadow-inner mb-4 bg-neutral-100"
-                placeholder="fDAIx Amount"
-                type="number"
-                onChange={(e) =>
-                  setAmount(
-                    e.target.value === "" ? "" : "" + Number(e.target.value)
-                  )
-                }
-              />
-              <button
-                onClick={createFlow}
-                className="py-2 px-4 rounded shadow-lg block w-full bg-neutral-100"
-              >
-                Open stream
-              </button>
-            </div>
+            {loading ? (
+              <div>Waiting for tx confirmation...</div>
+            ) : (
+              <>
+                <div className="flex justify-between mb-4 align-center">
+                  <div className="text-gray-400">Open a new stream</div>
+                  <button onClick={() => setModalOpen(false)}>Close</button>
+                </div>
+                <div>
+                  <input
+                    className="block w-full py-2 px-4 rounded shadow-inner mb-4 bg-neutral-100"
+                    placeholder="fDAIx Amount"
+                    type="number"
+                    onChange={(e) =>
+                      setAmount(
+                        e.target.value === "" ? "" : "" + Number(e.target.value)
+                      )
+                    }
+                  />
+                  <button
+                    onClick={createFlow}
+                    className="py-2 px-4 rounded shadow-lg block w-full bg-neutral-100"
+                  >
+                    Open stream
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
