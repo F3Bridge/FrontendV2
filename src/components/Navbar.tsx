@@ -46,6 +46,16 @@ export function Navbar() {
                     Streams
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/nft-video"
+                    className={({ isActive }) =>
+                      isActive ? "text-black" : "text-gray-400"
+                    }
+                  >
+                    NFT Video
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>

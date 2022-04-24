@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import LivePeer from "./components/Livepeer/Live-peer";
 
 import { Navbar } from "./components/Navbar";
 import { Intro } from "./pages/Intro";
@@ -25,6 +26,7 @@ function App() {
             <Route path="/" element={<Posts />} />
             <Route path="/profile/:address" element={<Profile />} />
             <Route path="/streams" element={<Streams />} />
+            <Route path="/nft-video" element={<LivePeer />} />
           </Routes>
         </>
       )}
