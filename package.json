@@ -10,6 +10,7 @@
   "dependencies": {
     "@apollo/client": "^3.5.10",
     "@coinbase/wallet-sdk": "^3.0.8",
+    "@skill-wallet/auth": "^1.0.63",
     "@superfluid-finance/sdk-core": "^0.3.2",
     "@walletconnect/ethereum-provider": "^1.7.7",
     "@walletconnect/jsonrpc-http-connection": "^1.0.0",
